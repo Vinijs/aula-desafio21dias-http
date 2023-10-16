@@ -80,6 +80,8 @@ namespace http
 
                 endpoints.MapGet("/", async context => {
                     context.Response.Headers.Add("Content-Type", "text/html ; charset=utf-8");
+                    context.Response.StatusCode = 200;  
+
 
                     await context.Response.WriteAsync($"<h1>Valores do Cookie localhost</h1>");
                     string teste = context.Request.Headers["Cookie"];
@@ -98,7 +100,8 @@ namespace http
                             await context.Response.WriteAsync($"</li>");                             
                         //}
 
-                            await context.Response.WriteAsync($"</ul>");                       
+                            await context.Response.WriteAsync($"</ul>");
+                                                 
                     }
 
                 });
